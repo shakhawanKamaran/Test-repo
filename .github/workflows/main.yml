@@ -6,14 +6,13 @@ env:
 
 jobs:
   windows_job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     env:
       mascot: test
     steps:
-      - run: echo 'Hi ${{ env.mascot }}'  # Hi Mona
-      - run: echo 'Hi ${{ env.mascot }}'  # Hi Octocat
-        env:
-          mascot: Octocat
+      - run: echo ' ${{ job.container }}'  # Hi Mona
+     
+       
           
   linux_job:
     needs: [windows_job]
