@@ -22,6 +22,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ needs.job1.outputs.output1 }}      
-      - name: runner info
-        run: echo ${{runner.os}}
+      - name: ${{ failure() }}
       
