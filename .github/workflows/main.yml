@@ -7,10 +7,13 @@ env:
 jobs:
   windows_job:
     runs-on: ubuntu-latest
-    env:
-      mascot: test
+    outputs:
+      output1: ${{ steps.step1.outputs.firstword }}
+     
     steps:
-      - run: echo ' ${{ job.status }}'  # Hi Mona
+      - id: step1
+        run: echo "firstword=hello" >> $GITHUB_OUTPUT
+     
      
        
           
@@ -19,7 +22,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-      - run: echo 'Hi ${{ env.mascot }}'  # Hi Tux
-      - run: echo 'Hi ${{ env.mascot }}'  # Hi Tux
-        env:
-          mascot: test
+      - run: echo '$GITHUB_OUTPUT'  # Hi Tux
+      
