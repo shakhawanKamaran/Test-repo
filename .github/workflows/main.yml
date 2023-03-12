@@ -7,6 +7,8 @@ env:
 jobs:
   windows_job:
     runs-on: windows-latest
+    env:
+      mascot: test
     steps:
       - run: echo 'Hi ${{ env.mascot }}'  # Hi Mona
       - run: echo 'Hi ${{ env.mascot }}'  # Hi Octocat
