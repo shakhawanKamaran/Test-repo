@@ -9,7 +9,7 @@ jobs:
      
     steps:
       - id: step1
-        run: echo '"::set-output name=firstword::Hello"'
+        run: echo "firstword=hello" >> $GITHUB_OUTPUT
      
      
        
@@ -18,5 +18,5 @@ jobs:
     needs: [windows_job]
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{jobs.windows_job}}
+      - run: echo ${{ needs.job1.outputs.firstword }}
       
