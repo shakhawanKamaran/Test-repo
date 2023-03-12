@@ -18,5 +18,5 @@ jobs:
     needs: [windows_job]
     runs-on: ubuntu-latest
     steps:
-      - run: echo test
+      - run: ${{jobs.windows_job}}
       
