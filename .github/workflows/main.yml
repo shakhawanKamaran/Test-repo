@@ -23,4 +23,3 @@ jobs:
       - run: echo 'Hi ${{ env.mascot }}'  # Hi Tux
         env:
           mascot: test
-Editing
