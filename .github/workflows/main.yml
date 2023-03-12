@@ -12,7 +12,7 @@ jobs:
      
     steps:
       - id: step1
-        run: echo "firstword=hello" >> $GITHUB_OUTPUT
+        run: echo '"::set-output name=firstword::Hello"'
      
      
        
@@ -22,5 +22,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-      - run: echo $GITHUB_OUTPUT  # Hi Tux
+      - run: echo needs.jobs.windows_job.output1
       
