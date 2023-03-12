@@ -1,19 +1,26 @@
-name: Test matrix
+name: Hi Mascot
 on: push
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        node: [14, 16]
+  windows_job:
+    runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.firstword }}
+     
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-      - name: Install dependencies
-        run: npm ci
-      - name: Run tests
-        run: npm test
+      - id: step1
+        run: echo "firstword=hello" >> $GITHUB_OUTPUT
+        
+      - name: runner info
+        run: echo ${{runner.os}}
+     
+     
+       
+          
+  linux_job:
+    needs: [windows_job]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ needs.job1.outputs.output1 }}      
+      - name: runner info
+        run: echo ${{needs}}
