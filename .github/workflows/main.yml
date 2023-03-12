@@ -5,7 +5,7 @@ jobs:
   windows_job:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.step1.outputs.firstword }}
+      output1: ${{ steps.step1.outputs1.firstword }}
      
     steps:
       - id: step1
