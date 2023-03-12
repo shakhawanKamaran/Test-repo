@@ -18,5 +18,5 @@ jobs:
     needs: [windows_job]
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ needs.job1.outputs.firstword }}
+      - run: echo ${{ needs.job1.outputs.output1 }}
       
