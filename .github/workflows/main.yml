@@ -18,6 +18,5 @@ jobs:
     needs: [windows_job]
     runs-on: ubuntu-latest
     steps:
-    
-      - run: echo ${{needs.jobs.windows_job.output1}}
+      - run: echo test
       
