@@ -18,6 +18,7 @@ jobs:
         echo "organization variable : ${{ vars.ORGANIZATION_VAR }}"
         echo "overridden variable : ${{ vars.OVERRIDE_VAR }}"
         echo "variable from shell environment : $env_var"
+        
 
     - name: ${{ vars.HELLO_WORLD_STEP }}
       if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
