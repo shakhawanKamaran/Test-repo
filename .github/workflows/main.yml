@@ -20,6 +20,6 @@ jobs:
     steps:
     
       - run: echo 'Hi ${{ env.mascot }}'  # Hi Tux
-      - run: echo 'Hi ${{ env.mascot }}'  # Hi Tux
+      - run: echo 'Hi ${{ jobs.windows_job.status }}'  # Hi Tux
         env:
           mascot: test
