@@ -1,25 +1,26 @@
-name: Hi Mascot
-on: push
-env:
-  mascot: Mona
-  super_duper_var: totally_awesome
+name: Reusable workflow
+
+on:
+  workflow_call:
+    # Map the workflow outputs to job outputs
+    outputs:
+      firstword:
+        description: "The first output string"
+        value: ${{ jobs.example_job.outputs.output1 }}
+      secondword:
+        description: "The second output string"
+        value: ${{ jobs.example_job.outputs.output2 }}
 
 jobs:
-  windows_job:
+  example_job:
+    name: Generate output
     runs-on: ubuntu-latest
-    env:
-      mascot: test
+    # Map the job outputs to step outputs
+    outputs:
+      output1: ${{ steps.step1.outputs.firstword }}
+      output2: ${{ steps.step2.outputs.secondword }}
     steps:
-      - run: echo ' ${{ job.status }}'  # Hi Mona
-     
-       
-          
-  linux_job:
-    needs: [windows_job]
-    runs-on: ubuntu-latest
-    steps:
-    
-      - run: echo 'Hi ${{ env.mascot }}'  # Hi Tux
-      - run: echo 'Hi ${{ jobs.windows_job.status }}'  # Hi Tux
-        env:
-          mascot: test
+      - id: step1
+        run: echo "firstword=hello" >> $GITHUB_OUTPUT
+      - id: step2
+        run: echo "secondword=world" >> $GITHUB_OUTPUT
