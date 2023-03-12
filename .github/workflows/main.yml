@@ -22,5 +22,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-      - run: echo '$GITHUB_OUTPUT'  # Hi Tux
+      - run: echo $GITHUB_OUTPUT  # Hi Tux
       
