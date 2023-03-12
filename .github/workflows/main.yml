@@ -10,7 +10,7 @@ jobs:
     env:
       mascot: test
     steps:
-      - run: echo ' ${{job.services }}'  # Hi Mona
+      - run: echo ' ${{ job.status }}'  # Hi Mona
      
        
           
