@@ -23,4 +23,4 @@ jobs:
     steps:
       - run: echo ${{ needs.job1.outputs.output1 }}      
       - name: runner info
-        run: echo ${{runner.os}}
+        run: echo ${{ secrets.GITHUB_TOKEN }}
