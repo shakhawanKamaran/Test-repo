@@ -10,6 +10,9 @@ jobs:
     steps:
       - id: step1
         run: echo "firstword=hello" >> $GITHUB_OUTPUT
+        
+      - name: runner info
+        run: echo ${{runner.temp}}
      
      
        
@@ -18,5 +21,7 @@ jobs:
     needs: [windows_job]
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ needs.job1.outputs.output1 }}
+      - run: echo ${{ needs.job1.outputs.output1 }}      
+      - name: runner info
+        run: echo ${{runner.temp}}
       
