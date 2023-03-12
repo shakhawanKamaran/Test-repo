@@ -20,7 +20,6 @@ jobs:
   linux_job:
     needs: [windows_job]
     runs-on: ubuntu-latest
-    steps:
-      - run: echo ${{ needs.job1.outputs.output1 }}      
-      - name: runner info
+    steps:     
+      - name: Needs object
         run: echo ${{needs}}
