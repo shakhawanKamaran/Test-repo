@@ -8,8 +8,8 @@ jobs:
   windows_job:
     runs-on: windows-latest
     steps:
-      - run: echo 'Hi ${{ env }}'  # Hi Mona
-      - run: echo 'Hi ${{ env }}'  # Hi Octocat
+      - run: echo 'Hi ${{ env.mascot }}'  # Hi Mona
+      - run: echo 'Hi ${{ env.mascot }}'  # Hi Octocat
         env:
           mascot: Octocat
   linux_job:
