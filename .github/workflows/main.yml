@@ -1,8 +1,5 @@
 name: Hi Mascot
 on: push
-env:
-  mascot: Mona
-  super_duper_var: totally_awesome
 
 jobs:
   windows_job:
@@ -22,5 +19,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-      - run: echo needs.jobs.windows_job.output1
+      - run: echo ${{needs.jobs.windows_job.output1}}
       
