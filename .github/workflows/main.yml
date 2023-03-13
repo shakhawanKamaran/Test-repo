@@ -8,5 +8,5 @@ jobs:
   linux_job:
     runs-on: ubuntu-latest 
     steps:     
-      - name: ${{env.TEST}}
+      - name: ${{vars.TEST}}
         run: echo $TEST
