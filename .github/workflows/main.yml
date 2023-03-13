@@ -9,7 +9,8 @@ jobs:
      
     steps:
       - id: step1
-        run: echo "firstword=hello" >> $GITHUB_OUTPUT
+#        run: echo "firstword=hello" >> $GITHUB_OUTPUT
+        run: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
         
       - name: runner info
         run: echo ${{runner.os}}
