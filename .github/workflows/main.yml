@@ -11,5 +11,5 @@ jobs:
       - name: condition 2
         if: runner.os != 'Windows'
         run: |
-          run: echo "The operating system on the runner is not Windows, it's $RUNNER_OS."
-          run: echo "${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
+          echo "The operating system on the runner is not Windows, it's $RUNNER_OS."
+          echo "${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
