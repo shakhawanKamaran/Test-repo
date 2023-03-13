@@ -4,16 +4,9 @@ on: push
 env:
   Key: value
 
-jobs:
-  windows_job:
-    runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.step1.outputs.outputs1.firstword }}
-     
-
-          
+jobs:  
   linux_job:
-    runs-on: ${{env.Key}}
+    runs-on: ubuntu-latest 
     steps:     
-      - name: Needs object
+      - name: ${{env.Key}}
         run: echo $Key
