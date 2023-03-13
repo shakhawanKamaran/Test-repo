@@ -9,4 +9,19 @@ jobs:
     runs-on: ubuntu-latest 
     steps:     
       - name: ${{vars.TEST}}
-        run: echo $TEST
+        run: |
+          echo "CI $CI"
+          echo "GITHUB_ACTION $GITHUB_ACTION"
+          echo "GITHUB_ACTION_PATH $GITHUB_ACTION_PATH"
+          echo "GITHUB_ACTION_REPOSITORY $GITHUB_ACTION_REPOSITORY"
+          echo $CI
+          echo $CI
+          echo $CI
+          echo $CI
+          echo $CI
+          echo $CI
+          echo $CI
+          echo $CI
+          
+
+
