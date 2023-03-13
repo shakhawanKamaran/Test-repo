@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest 
     steps:     
       - name: ${{env.Key}}
-        run: echo $Key
+        run: echo ${{env.Key}}
