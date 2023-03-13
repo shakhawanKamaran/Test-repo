@@ -1,5 +1,8 @@
-name: Hi Mascot
+name: Test env
 on: push
+
+env:
+  Key: value
 
 jobs:
   windows_job:
@@ -7,20 +10,10 @@ jobs:
     outputs:
       output1: ${{ steps.step1.outputs.outputs1.firstword }}
      
-    steps:
-      - id: step1
-#        run: echo "firstword=hello" >> $GITHUB_OUTPUT
-        run: echo ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-        
-      - name: runner info
-        run: echo ${{runner.os}}
-     
-     
-       
+
           
   linux_job:
-    needs: [windows_job]
-    runs-on: ubuntu-latest
+    runs-on: ${{env.Key}}
     steps:     
       - name: Needs object
-        run: echo ${{needs}}
+        run: echo $Key
