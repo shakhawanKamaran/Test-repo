@@ -2,14 +2,12 @@ name: Test env
 on: push
 
 jobs:
-  if-Windows-else:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [12, 14, 16]
     steps:
-      - name: condition 1
-        if: runner.os == 'Windows'
-        run: echo "The operating system on the runner is $env:RUNNER_OS."
-      - name: condition 2
-        if: runner.os != 'Windows'
-        run: |
-          echo "The operating system on the runner is not Windows, it's $RUNNER_OS."
-          echo "${{ github.workflow }} @ ${{ github.ref}}"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
